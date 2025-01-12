@@ -12,7 +12,8 @@ import SwiftData
 struct create_dreamsApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            DreamsDraftMO.self,
+            DreamingSessionMO.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
