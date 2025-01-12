@@ -17,7 +17,7 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        testdatapassing(item: item)
+                        CreateDreamsDraft(dreamSession: item)
                         
                     } label: {
                         Text("Item at \(item.createdAt, format: Date.FormatStyle(date: .numeric, time: .standard))")

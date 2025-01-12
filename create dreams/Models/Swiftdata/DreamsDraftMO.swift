@@ -14,15 +14,15 @@ class DreamsDraftMO {
     var createdAt: Date
     var rank: Int
     var priority: Int
-    var finilised: Bool
+    var finalized: Bool
     var dreamingSession: DreamingSessionMO
     
-    init(name: String = "" , createdAt: Date = Date(), rank: Int = 0, priority: Int = 0, finilised: Bool = false, dreamingSession: DreamingSessionMO) {
+    init(name: String = "" , createdAt: Date = Date(), rank: Int = 0, priority: Int = 0, finalized: Bool = false, dreamingSession: DreamingSessionMO) {
         self.name = name
         self.createdAt = createdAt
         self.rank = rank
         self.priority = priority
-        self.finilised = finilised
+        self.finalized = finalized
         self.dreamingSession = dreamingSession
     }
 }
