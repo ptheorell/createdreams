@@ -46,28 +46,30 @@ class AppCoordinator: AppCoordinatorProtocol {
     @ViewBuilder
     func build(_ screen: Screen) -> some View {
         switch screen {
-        case .home:
-            HomeView()
-        case .listHabit:
-            ListHabitView()
-        case .detailHabit(named: let habit):
-            DetailHabitView(habit: habit)
+        case .listDreams:
+            ContentView()
+        case .detailDream(dreamName: let dream):
+            DreamDetails(dream: dream)
+        case .prioritizeDreams(session: let session):
+            PriortizeDreamsDraft(dreamSession: session)
+        case .rankDreams(session: let session):
+            RankDreamsDraft(dreamSession: session)
         }
     }
     
     @ViewBuilder
     func build(_ sheet: Sheet) -> some View {
         switch sheet {
-        case .detailTask(named: let task):
-            DetailTaskView(task: task)
+        case .addJournal(dramName: let dream):
+            AddJournal(dream: dream)
         }
     }
     
     @ViewBuilder
     func build(_ fullScreenCover: FullScreenCover) -> some View {
         switch fullScreenCover {
-        case .addHabit(onSaveButtonTap: let onSaveButtonTap):
-            AddHabitView(onSaveButtonTap: onSaveButtonTap)
+        case .dreamSession(session: let session):
+            CreateDreamsDraft(dreamSession: session)
         }
     }
 }

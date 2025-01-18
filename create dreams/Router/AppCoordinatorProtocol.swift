@@ -22,19 +22,21 @@ protocol AppCoordinatorProtocol: ObservableObject {
 
 enum Screen: Identifiable, Hashable {
     case listDreams
-    case detailDream(name: DreamMO)
+    case detailDream(dreamName: DreamMO)
+    case prioritizeDreams(session: DreamingSessionMO)
+    case rankDreams(session: DreamingSessionMO)
     
     var id: Self { return self }
 }
 
 enum Sheet: Identifiable, Hashable {
-    case addJournal
+    case addJournal(dramName: DreamMO)
     
     var id: Self { return self }
 }
 
 enum FullScreenCover: Identifiable, Hashable {
-    case dreamSessions
+    case dreamSession(session: DreamingSessionMO)
 
     var id: Self { return self }
 }
@@ -43,15 +45,15 @@ extension FullScreenCover {
     // Conform to Hashable
     func hash(into hasher: inout Hasher) {
         switch self {
-        case .dreamSessions:
-            hasher.combine("dreamSessions")
+        case .dreamSession:
+            hasher.combine("dreamSession")
         }
     }
     
     // Conform to Equatable
     static func == (lhs: FullScreenCover, rhs: FullScreenCover) -> Bool {
         switch (lhs, rhs) {
-        case (.dreamSessions, .dreamSessions):
+        case (.dreamSession, .dreamSession):
             return true
         }
     }
